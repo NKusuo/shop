@@ -5,6 +5,7 @@ import com.company.shop.domain.Products;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -13,7 +14,6 @@ public class ProductsService {
 
     @Autowired
     private final ProductsRepository productsRepository;
-
 
     public ProductsService(ProductsRepository productsRepository) {
         this.productsRepository = productsRepository;
@@ -25,5 +25,15 @@ public class ProductsService {
 
     public List<Products> allProducts(){
         return productsRepository.allProducts();
+    }
+
+    //удаление продукта по id
+    @Transactional
+    public void deleteProduct(Integer id) {
+        long dp = productsRepository.deleteByIdProduct(id);
+    }
+
+    public List<Products> findTitleProduct(String title){
+        return productsRepository.findAllByTitle(title);
     }
 }

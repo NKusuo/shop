@@ -10,7 +10,7 @@ public class Admin {
 
     @Id
     @Column(name="idadmin")
-    //стратегия -  id будет создаваться так, как мы указали в бд
+    //
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idAdmin;
 
@@ -29,8 +29,7 @@ public class Admin {
     public Admin() {
     }
 
-    public Admin(Integer idAdmin, String fio, String login, String pass, Long phone) {
-        this.idAdmin = idAdmin;
+    public Admin(String fio, String login, String pass, Long phone) {
         this.fio = fio;
         this.login = login;
         this.pass = pass;
@@ -38,6 +37,42 @@ public class Admin {
     }
 
     //связь админа с заказами
-    @OneToMany(mappedBy = "primaryAdmin", fetch = FetchType.EAGER)
-    private List<Orders> ordersAdmin;
+    @OneToMany(mappedBy = "admin", fetch = FetchType.EAGER)
+    private List<Orders> orderAdmin;
+
+    public Integer getIdAdmin() {
+        return idAdmin;
+    }
+
+    public String getFio() {
+        return fio;
+    }
+
+    public void setFio(String fio) {
+        this.fio = fio;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
+    public Long getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Long phone) {
+        this.phone = phone;
+    }
 }

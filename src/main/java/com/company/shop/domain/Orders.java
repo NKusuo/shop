@@ -10,7 +10,7 @@ public class Orders {
 
     @Id
     @Column(name="idorder")
-    //стратегия -  id будет создаваться так, как мы указали в бд
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idOrder;
 
@@ -43,17 +43,56 @@ public class Orders {
     //связь заказов с клиентом
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "idclient", insertable =  false, updatable = false)
-    private Client primaryClient;
+    private Client client;
 
-    //связь заказов с товарами
+    //не работает пока
+   /* //связь заказов с товарами
     @ManyToMany
     @JoinTable(name = "LIST_PRODUCTS_IN_ORDER",
             joinColumns = @JoinColumn(name = "orders_idclient_fkey"),
             inverseJoinColumns = @JoinColumn(name = "idproduct"))
     protected List<Products> productsInOrder;
+    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
+    private List<Products> orderProducts;*/
 
     //связь заказов с админом
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "idadmin")
-    private Client primaryAdmin;
+    private Admin admin;
+
+    public Integer getIdOrder() {
+        return idOrder;
+    }
+
+    public Integer getIdclient() {
+        return idclient;
+    }
+
+    public Integer getIdproduct() {
+        return idproduct;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Calendar getDate() {
+        return date;
+    }
+
+    public void setDate(Calendar date) {
+        this.date = date;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
 }
