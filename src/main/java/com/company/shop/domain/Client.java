@@ -21,9 +21,6 @@ public class Client {
     @Column(name="fio")
     private String fio;
 
-    @Column(name="bday")
-    private Date bday;
-
     @Column(name="login")
     private String login;
 
@@ -42,9 +39,8 @@ public class Client {
     public Client() {
     }
 
-    public Client( String fio, Date bday, String login, String pass, String address, String email, Long phone) {
+    public Client( String fio,  String login, String pass, String address, String email, Long phone) {
         this.fio = fio;
-        this.bday = bday;
         this.login = login;
         this.pass = pass;
         this.address = address;
@@ -52,9 +48,17 @@ public class Client {
         this.phone = phone;
     }
 
-    //связь клиента с заказами
-    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
+    //связь клиента с заказами, LAZY - при загрузке клиента,автоматически не прогружаем все заказы
+    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Orders> ordersClient;
+
+    public List<Orders> getOrdersClient() {
+        return ordersClient;
+    }
+
+    public void setOrdersClient(List<Orders> ordersClient) {
+        this.ordersClient = ordersClient;
+    }
 
     public Integer getIdClient() {
         return idClient;
@@ -68,14 +72,6 @@ public class Client {
         this.fio = fio;
     }
 
-    //@Temporal(TemporalType.DATE)
-    public Date getBday() {
-        return bday;
-    }
-
-    public void setBday(Date bday) {
-        this.bday = bday;
-    }
 
     public String getLogin() {
         return login;

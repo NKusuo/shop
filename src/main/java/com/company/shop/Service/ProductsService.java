@@ -33,7 +33,24 @@ public class ProductsService {
         long dp = productsRepository.deleteByIdProduct(id);
     }
 
+    //Ищем по названию
     public List<Products> findTitleProduct(String title){
         return productsRepository.findAllByTitle(title);
     }
+
+    //Ищем по id
+    public Products findAllById(Integer id){
+        return productsRepository.findAllByIdProduct(id);
+    }
+
+    //обновление количества товара
+    @Transactional
+    public void updateAmount(Integer idProduct, Integer newAmount){
+        productsRepository.updateAmount(idProduct,newAmount);
+    }
+
+    /*//Прибыль
+    public List<Products> profit(){
+       return productsRepository.profit();
+    }*/
 }

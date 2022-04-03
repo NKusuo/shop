@@ -1,7 +1,7 @@
 package com.company.shop.domain;
 
 import javax.persistence.*;
-import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -24,8 +24,9 @@ public class Orders {
     @Column(name = "status")
     private String status;
 
-    @Column(name="date")
-    private Calendar date;
+    @Temporal(TemporalType.DATE)
+    @Column(name="dateorder")
+    private Date dateOrder;
 
     @Column(name = "price")
     private Integer price;
@@ -33,13 +34,28 @@ public class Orders {
     public Orders() {
     }
 
-    public Orders(Integer idclient, Integer idproduct, String status, Calendar date, Integer price){
+    public Orders(Integer idclient, Integer idproduct, String status, Date date, Integer price){
         this.idclient = idclient;
         this.idproduct = idproduct;
         this.status = status;
-        this.date = date;
+        this.dateOrder = date;
         this.price = price;
     }
+
+    public Orders(Integer idOrder,Integer idclient, Integer idproduct, String status, Date date, Integer price){
+        this.idOrder=idOrder;
+        this.idclient = idclient;
+        this.idproduct = idproduct;
+        this.status = status;
+        this.dateOrder = date;
+        this.price = price;
+    }
+
+    public Orders(Integer idOrder, String status){
+        this.idOrder=idOrder;
+        this.status = status;
+    }
+
     //связь заказов с клиентом
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "idclient", insertable =  false, updatable = false)
@@ -55,13 +71,26 @@ public class Orders {
     @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
     private List<Products> orderProducts;*/
 
-    //связь заказов с админом
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    //связь заказов с админом ВОЗМОЖНО НЕ НУЖНА
+   /* @ManyToOne //(optional = false)
     @JoinColumn(name = "idadmin")
     private Admin admin;
 
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
+
     public Integer getIdOrder() {
         return idOrder;
+    }*/
+
+    //Вывод заказаов
+    public String printOrder() {
+        return(this.status+" "+this.dateOrder+" "+this.price).toString();
     }
 
     public Integer getIdclient() {
@@ -80,12 +109,12 @@ public class Orders {
         this.status = status;
     }
 
-    public Calendar getDate() {
-        return date;
+    public Date getDate() {
+        return dateOrder;
     }
 
-    public void setDate(Calendar date) {
-        this.date = date;
+    public void setDate(Date date) {
+        this.dateOrder = date;
     }
 
     public Integer getPrice() {
@@ -94,5 +123,10 @@ public class Orders {
 
     public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    //вывод номера заказа и статус
+    public String printOrderStatus() {
+        return (this.idOrder+" "+this.status).toString();
     }
 }

@@ -36,6 +36,7 @@ public class Admin {
         this.phone = phone;
     }
 
+    /* ВОЗМОЖНО НЕ НУЖНА
     //связь админа с заказами
     @OneToMany(mappedBy = "admin", fetch = FetchType.EAGER)
     private List<Orders> orderAdmin;
@@ -46,7 +47,7 @@ public class Admin {
 
     public String getFio() {
         return fio;
-    }
+    }*/
 
     public void setFio(String fio) {
         this.fio = fio;

@@ -34,10 +34,24 @@ public class Products {
         this.description = description;
     }
 
+    /*
+    private int profitSum;
+
+    public Products(Integer idProduct, int profitSum) {
+        this.idProduct = idProduct;
+        this.profitSum = profitSum;
+    }
+    //Вывод прибыли
+    public String printProfit(){
+        return (this.idProduct+" "+this.profitSum).toString();
+    }*/
+
     //вывод объекта в консоль
     public String printProduct(){
         return (this.title + " "+ this.amount+" "+ this.description+" "+this.price).toString();
     }
+
+
 
     //не работате пока, не знаю че делать
 /*

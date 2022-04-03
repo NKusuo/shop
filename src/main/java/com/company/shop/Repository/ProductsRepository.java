@@ -2,8 +2,8 @@ package com.company.shop.Repository;
 
 import com.company.shop.domain.Products;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -19,4 +19,16 @@ public interface ProductsRepository extends JpaRepository<Products,Long> {
     //Ищем товар по названию
     List<Products> findAllByTitle(String title);
 
+    //Ищем товар по id
+    Products findAllByIdProduct(Integer id);
+
+    //Обновление количества товаров
+    @Modifying
+    @Query("UPDATE Products SET amount =:newAmount WHERE idProduct=(:idProduct)")
+    Integer updateAmount(Integer idProduct, Integer newAmount);
+
+    /*//Какой товар приносит больше прибыли по заказам
+    @Modifying
+    @Query("select new Products(Products.idProduct,  sum(Orders.price)) from Products  right join Orders on (Products.idProduct=Orders.idproduct) group by Products.idProduct order by sum(Orders.price) desc")
+    List<Products> profit();*/
 }
