@@ -11,15 +11,15 @@ public class Orders {
     @Id
     @Column(name="idorder")
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer idOrder;
 
 
     @Column(name = "idclient")
     private Integer idclient;
 
-    @Column(name = "idproduct")
-    private Integer idproduct;
+    //@Column(name = "idproduct")
+    //private Integer idproduct;
 
     @Column(name = "status")
     private String status;
@@ -34,22 +34,14 @@ public class Orders {
     public Orders() {
     }
 
-    public Orders(Integer idclient, Integer idproduct, String status, Date date, Integer price){
+    public Orders(Integer idclient,  String status, Date date, Integer price,List<Products> listProducts){
         this.idclient = idclient;
-        this.idproduct = idproduct;
         this.status = status;
         this.dateOrder = date;
         this.price = price;
+        this.listProducts = listProducts;
     }
 
-    public Orders(Integer idOrder,Integer idclient, Integer idproduct, String status, Date date, Integer price){
-        this.idOrder=idOrder;
-        this.idclient = idclient;
-        this.idproduct = idproduct;
-        this.status = status;
-        this.dateOrder = date;
-        this.price = price;
-    }
 
     public Orders(Integer idOrder, String status){
         this.idOrder=idOrder;
@@ -61,32 +53,21 @@ public class Orders {
     @JoinColumn(name = "idclient", insertable =  false, updatable = false)
     private Client client;
 
-    //не работает пока
-   /* //связь заказов с товарами
-    @ManyToMany
-    @JoinTable(name = "LIST_PRODUCTS_IN_ORDER",
-            joinColumns = @JoinColumn(name = "orders_idclient_fkey"),
+    //связь заказа с товарами
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "OrderandProduct",
+            joinColumns = @JoinColumn(name = "idorder"),
             inverseJoinColumns = @JoinColumn(name = "idproduct"))
-    protected List<Products> productsInOrder;
-    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
-    private List<Products> orderProducts;*/
+    List<Products> listProducts;
 
-    //связь заказов с админом ВОЗМОЖНО НЕ НУЖНА
-   /* @ManyToOne //(optional = false)
-    @JoinColumn(name = "idadmin")
-    private Admin admin;
-
-    public Admin getAdmin() {
-        return admin;
+    public List<Products> getListProducts() {
+        return listProducts;
     }
 
-    public void setAdmin(Admin admin) {
-        this.admin = admin;
+    public void setListProducts(List<Products> listProducts) {
+        this.listProducts = listProducts;
     }
-
-    public Integer getIdOrder() {
-        return idOrder;
-    }*/
 
     //Вывод заказаов
     public String printOrder() {
@@ -97,9 +78,9 @@ public class Orders {
         return idclient;
     }
 
-    public Integer getIdproduct() {
+    /*public Integer getIdproduct() {
         return idproduct;
-    }
+    }*/
 
     public String getStatus() {
         return status;
@@ -128,5 +109,16 @@ public class Orders {
     //вывод номера заказа и статус
     public String printOrderStatus() {
         return (this.idOrder+" "+this.status).toString();
+    }
+
+    public String printAllOrders(){
+        //("Дата заказа" +this.dateOrder);
+        String hhh="";
+        for(int i=0;i<this.listProducts.size();++i){
+            hhh+=this.listProducts.get(i).getTitle()+"\n";
+        }
+        //System.out.println("Цена " +this.price);
+        //System.out.println("Статус " +this.status);
+        return ("Дата заказа " +this.dateOrder +"\n"+ hhh+ "Цена " +this.price+"\n"+"Статус " +this.status+"\n");
     }
 }

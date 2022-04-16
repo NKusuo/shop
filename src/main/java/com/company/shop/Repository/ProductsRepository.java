@@ -27,8 +27,4 @@ public interface ProductsRepository extends JpaRepository<Products,Long> {
     @Query("UPDATE Products SET amount =:newAmount WHERE idProduct=(:idProduct)")
     Integer updateAmount(Integer idProduct, Integer newAmount);
 
-    /*//Какой товар приносит больше прибыли по заказам
-    @Modifying
-    @Query("select new Products(Products.idProduct,  sum(Orders.price)) from Products  right join Orders on (Products.idProduct=Orders.idproduct) group by Products.idProduct order by sum(Orders.price) desc")
-    List<Products> profit();*/
 }

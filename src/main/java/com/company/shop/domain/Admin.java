@@ -11,7 +11,7 @@ public class Admin {
     @Id
     @Column(name="idadmin")
     //
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer idAdmin;
 
     @Column(name = "fio")
@@ -36,18 +36,6 @@ public class Admin {
         this.phone = phone;
     }
 
-    /* ВОЗМОЖНО НЕ НУЖНА
-    //связь админа с заказами
-    @OneToMany(mappedBy = "admin", fetch = FetchType.EAGER)
-    private List<Orders> orderAdmin;
-
-    public Integer getIdAdmin() {
-        return idAdmin;
-    }
-
-    public String getFio() {
-        return fio;
-    }*/
 
     public void setFio(String fio) {
         this.fio = fio;

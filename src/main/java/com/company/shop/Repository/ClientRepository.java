@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface ClientRepository extends JpaRepository<Client,Long> {
 
-    //Ищем товар по названию
+    //Ищем клиента по id
     Client findAllByIdClient(Integer id);
 }

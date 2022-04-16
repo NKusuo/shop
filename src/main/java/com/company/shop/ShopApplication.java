@@ -16,8 +16,10 @@ import org.springframework.context.event.EventListener;
 
 import javax.transaction.Transactional;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Calendar;
+import java.util.List;
 
 @SpringBootApplication
 public class ShopApplication {
@@ -40,47 +42,55 @@ public class ShopApplication {
 	private void test(){
 
 		//добавление товара
-		//Products product = new Products("кварель", "краска, 12 цветов", 1, 5000);
+		//Products product = new Products("Маслянная краска", "синий", 1, 1200);
 		//productsService.createProduct(product);
+		//Products product1= new Products("Акварель краска", "синий", 1, 1200);
+		//productsService.createProduct(product1);
+		//Products product2 = new Products("краска", "синий", 1, 1200);
+		//productsService.createProduct(product2);
 
 		//вывод товара по названию
-		//productsService.findTitleProduct("Холст").forEach(it->System.out.println(it.printProduct()));
+		//System.out.println("вывод товара по названию");
+		//productsService.findTitleProduct("краска").forEach(it->System.out.println(it.printProduct()));
 
 		//вывод списка товаров
+		//System.out.println("вывод списка товаров");
 		//productsService.allProducts().forEach(it->System.out.println(it.printProduct()));
 
 		//удаление продукта по id
-		//productsService.deleteProduct(3);
+		//productsService.deleteProduct(2);
 
 		//добавление клиента
-		//Client client = new Client("Логинова Н.А.", "natali", "kuku99", "Улица Птушкина", "natali@mail.ru", 89379988902L);
+		//Client client = new Client("Рыжова Е.В.", "katerina", "katay99", "Улица Колотущкина", "aterina@mail.ru", 89379989475L);
 		//clientService.createClient(client);
 
+
+
 		//Добавление админа
-		//Admin admin = new Admin("Куркунова К.Д.", "kurku", "kerkkk", 88005558886L);
+		//Admin admin = new Admin("Кошелев В.В.", "vladimir", "kekeke@mail.ru", 88006666886L);
 		//adminService.createAdmin(admin);
 
 		//Добавление заказа , new Date()- формирует дату сегодняшнюю
-		//Orders order = new Orders(1, 1, "Подтвержден", new Date(), productsService.findAllById(2).getPrice());
-		//orderService.createOrder(order);
+
+		/*ArrayList<Products> orderOne=new ArrayList<Products>();
+		orderOne.add(productsService.findAllById(1));
+		orderOne.add(productsService.findAllById(3));
+		Integer price = orderOne.get(0).getPrice()+orderOne.get(1).getPrice();
+		Orders order = new Orders(5,"Принят", new Date(), price,orderOne);
+		orderService.createOrder(order);*/
 
 		//Все заказы клиента
-		//orderService.findAllByIdClient(1).forEach(it->System.out.println(productsService.findAllById(it.getIdproduct()).getTitle()+" "+it.printOrder()));
+		System.out.println("");
+		orderService.findAllByIdClient(5).forEach(it->System.out.println(it.printAllOrders()));
 
 
 		//Изменение статуса заказа
 		//String status="Собран";
-        //orderService.updateStatus(21,status);
-
-		//обновление количества товара
-		//productsService.updateAmount(2,5);
+        //orderService.updateStatus(7,status);
 
 		//Вывод номеров заказов и их статусы
+		//System.out.println("Номер заказа(id) и статус");
 		//orderService.ordersStatus().forEach(it->System.out.println(it.printOrderStatus()));
-
-		//какой товар приносит больше прибыли(по заказам) ПОКА НЕ РАБОТАЕТ
-		//productsService.profit().forEach(it->it.printProfit());
-
 
 	}
 }

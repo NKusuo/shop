@@ -15,7 +15,7 @@ public class Client {
     @Id
     @Column(name="idclient")
     //стратегия -  id будет создаваться последовательностью
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer idClient;
 
     @Column(name="fio")

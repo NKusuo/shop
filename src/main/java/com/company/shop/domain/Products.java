@@ -1,6 +1,7 @@
 package com.company.shop.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="products")
@@ -8,8 +9,8 @@ public class Products {
 
     @Id
     @Column(name="idproduct")
-    //стратегия -  id будет создаваться так, как мы указали в бд
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer idProduct;
 
     @Column(name = "title")
@@ -24,6 +25,9 @@ public class Products {
     @Column(name = "description")
     private String description;
 
+    @ManyToMany(mappedBy = "listProducts")
+    List<Orders> listOrders;
+
     public Products() {
     }
 
@@ -34,36 +38,11 @@ public class Products {
         this.description = description;
     }
 
-    /*
-    private int profitSum;
-
-    public Products(Integer idProduct, int profitSum) {
-        this.idProduct = idProduct;
-        this.profitSum = profitSum;
-    }
-    //Вывод прибыли
-    public String printProfit(){
-        return (this.idProduct+" "+this.profitSum).toString();
-    }*/
-
     //вывод объекта в консоль
     public String printProduct(){
         return (this.title + " "+ this.amount+" "+ this.description+" "+this.price).toString();
     }
 
-
-
-    //не работате пока, не знаю че делать
-/*
-    //связь товаров с заказами
-    @ManyToMany(mappedBy = "productsInOrder")
-    protected List<Orders> ordersProduct;
-
-
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
-    @JoinColumn(name = "idorder")
-    private Orders order;
-*/
     public Integer getIdProduct() {
         return idProduct;
     }

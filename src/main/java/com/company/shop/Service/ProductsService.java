@@ -18,7 +18,7 @@ public class ProductsService {
     public ProductsService(ProductsRepository productsRepository) {
         this.productsRepository = productsRepository;
     }
-
+    //добавление продукта в таблицу продукты
     public void  createProduct(Products product){
         productsRepository.save(product);
     }
@@ -49,8 +49,5 @@ public class ProductsService {
         productsRepository.updateAmount(idProduct,newAmount);
     }
 
-    /*//Прибыль
-    public List<Products> profit(){
-       return productsRepository.profit();
-    }*/
+
 }
