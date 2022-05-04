@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9d7c70a0-03a3-4fca-a9ee-91ae3b89386d" name="Changes" comment="" />
+    <list default="true" id="9d7c70a0-03a3-4fca-a9ee-91ae3b89386d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AcceptedOrders.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Catalog.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/1.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/img/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/img/intro.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/img/intro1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entry.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entryAdm.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/err404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/history.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/intro.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/logo — копия.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/menu.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/menuAdm.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/registration.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statProducts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statProfit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsp.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,10 +41,14 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="27z8pZA3R9138YwQynPlUIgdZtJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -26,7 +57,8 @@
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/tsp"
   },
   "keyToStringList": {
     "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
@@ -44,5 +76,16 @@
       <updated>1650311744984</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
