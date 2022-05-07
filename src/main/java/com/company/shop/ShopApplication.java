@@ -23,7 +23,7 @@ import java.util.List;
 
 @SpringBootApplication
 public class ShopApplication {
-
+	/*
 	//отмечает конструктор, поле или метод как требующий автозаполнения инъекцией зависимости Spring
 	@Autowired
 	private ProductsService productsService;
@@ -33,11 +33,11 @@ public class ShopApplication {
 	private AdminService adminService;
 	@Autowired
 	private OrderService orderService;
-
+*/
 	public static void main(String[] args) {
 		SpringApplication.run(ShopApplication.class, args);
 	}
-
+/*
 	@EventListener(ApplicationReadyEvent.class)
 	private void test(){
 
@@ -80,8 +80,8 @@ public class ShopApplication {
 		orderService.createOrder(order);*/
 
 		//Все заказы клиента
-		System.out.println("");
-		orderService.findAllByIdClient(5).forEach(it->System.out.println(it.printAllOrders()));
+		//System.out.println("");
+		//orderService.findAllByIdClient(5).forEach(it->System.out.println(it.printAllOrders()));
 
 
 		//Изменение статуса заказа
@@ -92,5 +92,5 @@ public class ShopApplication {
 		//System.out.println("Номер заказа(id) и статус");
 		//orderService.ordersStatus().forEach(it->System.out.println(it.printOrderStatus()));
 
-	}
+	//}
 }
