@@ -61,7 +61,7 @@ body{
     justify-content:center;
     padding-top:100px;
     height:1000px;
-    background: url("img/intro.jpg");
+    background: url("css/img/intro.jpg");
   }
  .intro_inner{
     width:100%;

@@ -19,4 +19,49 @@ public class mainController {
     public String registration( ) {
         return "registration.html";
     }
+
+    @GetMapping("/AcceptedOrders.html")
+    public String AcceptedOrders( ) {
+        return "AcceptedOrders.html";
+    }
+
+    @GetMapping("/Catalog.html")
+    public String Catalog( ) {
+        return "Catalog.html";
+    }
+
+    @GetMapping("/entry.html")
+    public String entry( ) {
+        return "entry.html";
+    }
+
+    @GetMapping("/entryAdm.html")
+    public String entryAdm( ) {
+        return "entryAdm.html";
+    }
+
+    @GetMapping("/history.html")
+    public String history( ) {
+        return "history.html";
+    }
+
+    @GetMapping("/menu.html")
+    public String menu( ) {
+        return "menu.html";
+    }
+
+    @GetMapping("/menuAdm.html")
+    public String menuAdm( ) {
+        return "menuAdm.html";
+    }
+
+    @GetMapping("/statProducts.html")
+    public String statProducts( ) {
+        return "statProducts.html";
+    }
+
+    @GetMapping("/statProfit.html")
+    public String statProfit( ) {
+        return "statProfit.html";
+    }
 }
