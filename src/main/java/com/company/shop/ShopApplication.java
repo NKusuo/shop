@@ -1,13 +1,13 @@
 package com.company.shop;
 
-import com.company.shop.Service.AdminService;
+/*import com.company.shop.Service.AdminService;
 import com.company.shop.Service.ClientService;
 import com.company.shop.Service.OrderService;
 import com.company.shop.Service.ProductsService;
 import com.company.shop.domain.Admin;
 import com.company.shop.domain.Client;
 import com.company.shop.domain.Orders;
-import com.company.shop.domain.Products;
+import com.company.shop.domain.Products;*/
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
