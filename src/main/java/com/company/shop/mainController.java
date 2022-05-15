@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 public class mainController {
 
-    @GetMapping("/2")
+    @GetMapping("/2.html")
     public String main( ) {
-        return "2";
+        return "2.html";
     }
 
     @GetMapping("/registration.html")
