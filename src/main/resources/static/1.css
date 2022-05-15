@@ -82,6 +82,20 @@ p{
     font-weight: 400;
 }
 
+.catalog_products{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 35px 0;
+    border-bottom: 1px solid #515369;
+}
+
+.add_order{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
 /* страница регистрации*/
 input[type=text], input[type=password],input[type=date],input[type=tel],input[type=email] {
     width: 1140px;
@@ -109,3 +123,4 @@ input[type=text]:focus, input[type=password]:focus,input[type=date]:focus,input[
     width: 500px;
     opacity: 0.9;
 }
+

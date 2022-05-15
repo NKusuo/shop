@@ -1,11 +1,10 @@
 package com.company.shop;
 
+import com.company.shop.Service.ProductsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class mainController {
@@ -40,13 +39,22 @@ public class mainController {
         return "entryAdm.html";
     }
 
+    @PostMapping("/entry.html")
+    public String entryPost(){
+        return "menu.html";
+    }
+
     @GetMapping("/history.html")
     public String history( ) {
         return "history.html";
     }
 
+    @Autowired
+    private ProductsService productsService;
+
     @GetMapping("/menu.html")
-    public String menu( ) {
+    public String menu(Model model) {
+        model.addAttribute("Products",productsService.allProducts());
         return "menu.html";
     }
 
@@ -63,5 +71,10 @@ public class mainController {
     @GetMapping("/statProfit.html")
     public String statProfit( ) {
         return "statProfit.html";
+    }
+
+    @GetMapping("/err404.html")
+    public String err404( ) {
+        return "err404.html";
     }
 }
