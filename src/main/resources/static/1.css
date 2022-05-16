@@ -96,6 +96,12 @@ p{
     display: flex;
     align-items: center;
 }
+
+.custom-checkbox {
+
+}
+
+
 /* страница регистрации*/
 input[type=text], input[type=password],input[type=date],input[type=tel],input[type=email] {
     width: 1140px;

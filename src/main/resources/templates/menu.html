@@ -26,7 +26,10 @@
                 <p th:text="'Описание: '+${products.description}"/>
                 <p th:text="'В наличии: '+${products.amount}"/>
                 <p th:text="'Цена: '+${products.price}"/>
-            <button type="submit" class="button">Добавить</button>
+            <label>
+                <input type="checkbox" class="custom-checkbox" name="add" value="yes">Добавить
+            </label>
+            <!--<button type="submit" class="add_button"> + </button>-->
         </div>
         <div class="add_order">
             <button type="submit" class="button">Создать заказ</button>
