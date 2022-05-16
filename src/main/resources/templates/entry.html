@@ -9,21 +9,22 @@
 <body>
 
 
-<form action="menu.html">
+<form action="#" th:action="@{/entry.html}"th:object="${clientForm}" method="post" >
     <div class="header">
         <div class="container">
             <nav class="nav">
                 <a class="nav_back" href="2.html">Назад</a>
             </nav>
+           <!-- <p th:text="${dataError.dataError}"/>-->
             <h1>Вход</h1>
             <p>Пожалуйста заполните эту форму, чтобы войти.</p>
             <hr>
 
             <label><b>Логин</b></label>
-            <input type="text" placeholder="Введите логин" name="log" required>
+            <input type="text" th:field="*{login}" placeholder="Введите логин" name="log" required>
 
             <label><b>Пароль</b></label>
-            <input type="password" placeholder="Введите пароль" name="psw" required>
+            <input type="password" th:field="*{pass}" placeholder="Введите пароль" name="psw" required>
 
             <hr>
             <button type="submit" class="button">Войти</button>

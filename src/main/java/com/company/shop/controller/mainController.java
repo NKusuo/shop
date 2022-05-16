@@ -1,4 +1,4 @@
-package com.company.shop;
+package com.company.shop.controller;
 
 import com.company.shop.Service.ProductsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +14,7 @@ public class mainController {
         return "2.html";
     }
 
-    @GetMapping("/registration.html")
-    public String registration( ) {
-        return "registration.html";
-    }
+
 
     @GetMapping("/AcceptedOrders.html")
     public String AcceptedOrders( ) {
@@ -29,20 +26,11 @@ public class mainController {
         return "Catalog.html";
     }
 
-    @GetMapping("/entry.html")
-    public String entry( ) {
-        return "entry.html";
-    }
-
     @GetMapping("/entryAdm.html")
     public String entryAdm( ) {
         return "entryAdm.html";
     }
 
-    @PostMapping("/entry.html")
-    public String entryPost(){
-        return "menu.html";
-    }
 
     @GetMapping("/history.html")
     public String history( ) {

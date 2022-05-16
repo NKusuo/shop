@@ -16,12 +16,28 @@ public class ClientService {
         this.clientRepository = clientRepository;
     }
 
-    public void  createClient(Client client){
+    public boolean  createClient(Client client){
+        Client clientFromBD = clientRepository.findByLogin(client.getLogin());
+
+        //если логин занят, возвращаем ложь
+        if(clientFromBD!=null){
+            return false;
+        }
         clientRepository.save(client);
+        return true;
     }
 
     //Ищем клиента по  id (пока не нужно)
     public Client findById(Integer id){
         return clientRepository.findAllByIdClient(id);
+    }
+
+    public boolean findByPassAndLogin(Client client){
+        Client clientFromBD = clientRepository.findByLogin(client.getLogin());
+
+        if(clientFromBD==null || clientFromBD.getPass()!=client.getPass()){
+            return false;
+        }
+        return true;
     }
 }
