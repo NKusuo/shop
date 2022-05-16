@@ -19,17 +19,20 @@
                 <a class="nav_link" href="entry.html">Выйти</a>
             </nav>
         </div>
-
-        <div  class="catalog_products" th:each="products: ${Products}">
-
-                <p th:text="${products.title}"/>
-                <p th:text="'Описание: '+${products.description}"/>
-                <p th:text="'В наличии: '+${products.amount}"/>
-                <p th:text="'Цена: '+${products.price}"/>
-            <label>
-                <input type="checkbox" class="custom-checkbox" name="add" value="yes">Добавить
-            </label>
-            <!--<button type="submit" class="add_button"> + </button>-->
+        <div class="list_product">
+                <table >
+                    <div  th:each="products: ${Products}">
+                        <tr>
+                           <th><p th:text="${products.title}"/></th>
+                           <th><p th:text="'Описание: '+${products.description}"/></th>
+                            <th><p th:text="'В наличии: '+${products.amount}"/></th>
+                            <th><p th:text="'Цена: '+${products.price}"/></th>
+                            <th><label class="check" >
+                                    <input type="checkbox" name="add" value="yes"> <span>Добавить </span>
+                           </label> </th>
+                        </tr>
+                    </div>
+                </table>
         </div>
         <div class="add_order">
             <button type="submit" class="button">Создать заказ</button>
