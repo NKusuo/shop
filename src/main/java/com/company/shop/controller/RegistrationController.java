@@ -31,6 +31,6 @@ public class RegistrationController {
             return "usernameError.html";
         }
 
-        return "entry.html";
+        return "login.html";
     }
 }

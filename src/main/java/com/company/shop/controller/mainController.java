@@ -15,7 +15,6 @@ public class mainController {
     }
 
 
-
     @GetMapping("/AcceptedOrders.html")
     public String AcceptedOrders( ) {
         return "AcceptedOrders.html";

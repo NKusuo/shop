@@ -16,7 +16,7 @@
             <nav class="nav">
                 <!--<a class="nav_link" href="Catalog.html">Каталог товаров</a>-->
                 <a class="nav_link" href="history.html">История заказов</a>
-                <a class="nav_link" href="entry.html">Выйти</a>
+                <a class="nav_link" href="login.html">Выйти</a>
             </nav>
         </div>
         <div class="list_product">
@@ -27,7 +27,7 @@
                            <th><p th:text="'Описание: '+${products.description}"/></th>
                             <th><p th:text="'В наличии: '+${products.amount}"/></th>
                             <th><p th:text="'Цена: '+${products.price}"/></th>
-                            <th><label class="check" >
+                            <th><label class="check">
                                     <input type="checkbox" name="add" value="yes"> <span>Добавить </span>
                            </label> </th>
                         </tr>

@@ -15,22 +15,23 @@ public class loginController {
     @Autowired
     private ClientService clientService;
 
-
-    @GetMapping("/entry.html")
+/*
+    @GetMapping("/login.html")
     public String entry(Model model) {
-        model.addAttribute("clientForm", new Client());
-        return "entry.html";
+
+        return "login.html";
     }
 
-    @PostMapping("/entry.html")
+/*
+    @PostMapping("/login.html")
     public String checkEntry(@ModelAttribute("clientForm") Client clientForm, Model model) {
 
         if (!clientService.findByPassAndLogin(clientForm)){
             String dataError="Неверные даннные";
             model.addAttribute("dataError", dataError);
-            return "entry.html";
+            return "login.html";
         }
 
         return "menu.html";
-    }
+    }*/
 }

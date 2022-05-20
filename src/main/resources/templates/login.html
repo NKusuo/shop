@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:sec="https://thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>вход</title>
+    <link rel="stylesheet"  href="../../../../1.css">
+</head>
+<body>
+
+<div th:if="${param.error}">
+    Invalid username and password.
+</div>
+<div th:if="${param.logout}">
+    You have been logged out.
+</div>
+
+<!--<form action="menu.html" >
+    <div class="header">
+        <div class="container">
+            <nav class="nav">
+                <a class="nav_back" href="2.html">Назад</a>
+            </nav>
+           <!-- <p th:text="${dataError.dataError}"/>
+            <h1>Вход</h1>
+            <p>Пожалуйста заполните эту форму, чтобы войти.</p>
+            <hr>
+
+            <label><b>Логин</b></label>
+            <input type="text"  placeholder="Введите логин" name="log" required>
+
+            <label><b>Пароль</b></label>
+            <input type="password"  placeholder="Введите пароль" name="psw" required>
+
+            <hr>
+            <button type="submit" class="button">Войти</button>
+        </div>
+    </div>
+</form>
+-->
+
+<form th:action="@{/login}" method="post">
+    <div><label> User Name : <input type="text" name="username"/> </label></div>
+    <div><label> Password: <input type="password" name="password"/> </label></div>
+    <div><input type="submit" value="Sign In"/></div>
+</form>
+
+<div class="intro">
+    <div class="container">
+    </div>
+</div>
+</body>
+</html>
