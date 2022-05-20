@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class mainController {
 
-    @GetMapping("/2.html")
+   /* @GetMapping("/2.html")
     public String main( ) {
         return "2.html";
-    }
+    }*/
 
 
     @GetMapping("/AcceptedOrders.html")
