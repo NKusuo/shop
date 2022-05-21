@@ -32,10 +32,14 @@ public class ClientService {
         return clientRepository.findAllByIdClient(id);
     }
 
+    public Client findByLogin(String log){
+        return clientRepository.findByLogin(log);
+    }
+
     public boolean findByPassAndLogin(String log, String psw){
        Client clientFromBD = clientRepository.findByLogin(log);
 
-        if(clientFromBD!=null && clientFromBD.getPass()==psw){
+        if(clientFromBD!=null && psw.equals(clientFromBD.getPass())){
             return true;
         }
         return false;
