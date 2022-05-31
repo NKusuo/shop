@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <title>Принятые заказы</title>
@@ -17,6 +17,26 @@
                 <a class="nav_link" href="entryAdm.html">Выйти</a>
             </nav>
         </div>
+        <div class="list_product">
+            <table >
+                <div  th:each="orders: ${allOrders}">
+                    <tr>
+                            <td> <p th:text="'Заказ №  '+${orders.idOrder}" /></td>
+                            <td> <p th:text="'Статус:  '+${orders.status}" /></td>
+                    </tr>
+                </div>
+            </table>
+        </div>
+            <form class="updateStatus" action="#" th:action="@{/AcceptedOrders.html}"  method="post">
+                <label><b >Изменить статус заказа</b></label>
+                <input type="text"  placeholder="Введите номер заказа" name="id">
+                <input type="text"  placeholder="Введите статус" name="status">
+                <hr>
+                <button type="submit"  class="button">Изменить</button>
+            </form>
+
+
+
     </div>
 </div>
 

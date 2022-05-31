@@ -19,15 +19,13 @@
         </div>
         <div class="list_product">
             <table >
-                <div  th:each="orders: ${Orders}">
+                <div  th:each="orders: ${listOrders}">
                     <tr>
-                        <!--<th> <p th:text="'№  '+${orders.idOrder}" /></th>
-                       <th> <p th:text="'Дата:  '+${#dates.format(new java.util.Date(orders.dataOrder),'dd-MMM-yyyy')}"/></th>-->
-                        <th> <p th:text="'Статус:  '+${orders.status}" /></th>
-                        <!--<div  th:each="orders: ${Orders.listProducts}">
-                            <th><p th:text="${Orders.listProducts.title}" /></th>
-                        </div>-->
-                        <th> <p th:text="'Цена:  '+${orders.price}"/></th>
+                        <td> <p th:text="'№  '+${orders.idOrder}" /></td>
+                          <!-- <td> <p th:text="'Дата:  '+${orders.dateorder}"/></td>-->
+                           <td> <p th:text="'Статус:  '+${orders.status}" /></td>
+                           <!--<td> <p th:each="orders: ${Orders.listProducts[0]}" th:text="${products.title}"/></td>-->
+                        <td> <p th:text="'Цена:  '+${orders.price}"/></td>
                     </tr>
                 </div>
             </table>

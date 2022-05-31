@@ -92,16 +92,20 @@ table{
     width: 100%;
     border: none;
     border-collapse:collapse;
+    text-align: center;
 }
 
-th{
-    padding: 10px;
+td{
+    /*padding: 10px;*/
     margin: auto;
     border-bottom: 1px solid #515369;
     border-right: none;
     border-left: none
 }
 
+.updateStatus{
+    margin-top: 35px;
+}
 .check>input{
     position: absolute;
     z-index: -1;

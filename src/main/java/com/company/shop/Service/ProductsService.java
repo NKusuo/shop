@@ -1,7 +1,9 @@
 package com.company.shop.Service;
 
 import com.company.shop.Repository.ProductsRepository;
+import com.company.shop.domain.Client;
 import com.company.shop.domain.Products;
+import com.company.shop.statisticsPrice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +21,15 @@ public class ProductsService {
         this.productsRepository = productsRepository;
     }
     //добавление продукта в таблицу продукты
-    public void  createProduct(Products product){
+    public boolean createProduct(Products product){
+        Products productsFromBD = productsRepository.findAllByTitle(product.getTitle());
+
+        //если такой продукт есть, возвращаем ложь
+        if(productsFromBD!=null && productsFromBD.getDescription().equals(product.getDescription())){
+            return false;
+        }
         productsRepository.save(product);
+        return true;
     }
 
     public List<Products> allProducts(){
@@ -34,9 +43,9 @@ public class ProductsService {
     }
 
     //Ищем по названию
-    public List<Products> findTitleProduct(String title){
+    /*public List<Products> findTitleProduct(String title){
         return productsRepository.findAllByTitle(title);
-    }
+    }*/
 
     //Ищем по id
     public Products findAllById(Integer id){
@@ -49,5 +58,7 @@ public class ProductsService {
         productsRepository.updateAmount(idProduct,newAmount);
     }
 
-
+    public List<statisticsPrice> statProducts(){
+        return productsRepository.statProducts();
+    }
 }

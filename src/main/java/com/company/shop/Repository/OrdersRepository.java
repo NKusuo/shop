@@ -10,8 +10,14 @@ import java.util.List;
 
 public interface OrdersRepository extends JpaRepository<Orders,Long> {
 
-    @Query("SELECT new Orders(o.idOrder, o.status) FROM Orders o")
+    @Query(value ="SELECT idOrder,status FROM Orders ",
+            nativeQuery = true)
     List<Orders> ordersStatus();
+
+    //список заказов
+    @Query(value = "SELECT * FROM Orders ",
+            nativeQuery = true )
+    List<Orders> allOrders();
 
     List<Orders> findAllByIdclient(Integer idClient);
 
@@ -21,6 +27,8 @@ public interface OrdersRepository extends JpaRepository<Orders,Long> {
     @Modifying
     @Query("UPDATE Orders SET status = :newStatus WHERE idOrder=(:idOrder)")
     int updateStatus(Integer idOrder, String newStatus);
+
+
 
 
 

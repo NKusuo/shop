@@ -18,8 +18,6 @@ public class Orders {
     @Column(name = "idclient")
     private Integer idclient;
 
-    //@Column(name = "idproduct")
-    //private Integer idproduct;
 
     @Column(name = "status")
     private String status;
@@ -65,6 +63,8 @@ public class Orders {
         return listProducts;
     }
 
+    public Integer getIdOrder(){ return this.idOrder;}
+
     public void setListProducts(List<Products> listProducts) {
         this.listProducts = listProducts;
     }
@@ -78,9 +78,6 @@ public class Orders {
         return idclient;
     }
 
-    /*public Integer getIdproduct() {
-        return idproduct;
-    }*/
 
     public String getStatus() {
         return status;
@@ -91,7 +88,7 @@ public class Orders {
     }
 
     public Date getDate() {
-        return dateOrder;
+        return this.dateOrder;
     }
 
     public void setDate(Date date) {
@@ -99,13 +96,15 @@ public class Orders {
     }
 
     public Integer getPrice() {
-        return price;
+        return this.price;
     }
 
     public void setPrice(Integer price) {
         this.price = price;
     }
 
+
+/*
     //вывод номера заказа и статус
     public String printOrderStatus() {
         return (this.idOrder+" "+this.status).toString();
@@ -120,5 +119,7 @@ public class Orders {
         //System.out.println("Цена " +this.price);
         //System.out.println("Статус " +this.status);
         return ("Дата заказа " +this.dateOrder +"\n"+ hhh+ "Цена " +this.price+"\n"+"Статус " +this.status+"\n");
-    }
+    }*/
+
+
 }

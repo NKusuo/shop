@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://thymeleaf.org">
 <head>
 
     <meta charset="UTF-8" />
@@ -7,6 +7,8 @@
     <link rel="stylesheet"  href="../../../../1.css">
 </head>
 <body>
+
+
 <header class="header">
     <div class ="container">
         <div class="header_inner">
@@ -14,12 +16,44 @@
                 <img src="img/logo.png" alt="">
             </div>
             <nav class="nav">
-                <a class="nav_link" href="AcceptedOrders.html">Принятые заказы</a>
+                <a class="nav_link" href="AcceptedOrders.html">Заказы</a>
                 <a class="nav_link" href="statProducts.html">Статистика(по товарам)</a>
                 <a class="nav_link" href="statProfit.html">Статистика(по прибыли)</a>
                 <a class="nav_link" href="entryAdm.html">Выйти</a>
             </nav>
         </div>
+
+        <form action="#" th:action="@{/menuAdm.html}"  th:method="post" >
+
+                <div class="container">
+
+                    <h1>Добавить товар:</h1>
+
+                    <hr>
+                    <label><b>Наименование товара</b></label>
+                    <input type="text"  placeholder="Введите наименование" name="title">
+
+                    <label><b>Количество (шт.)</b></label>
+                    <input type="text"  placeholder="Введите количество" name="amount">
+
+                    <label><b>Описание</b></label>
+                    <input type="tel"  placeholder="Введите описание товара" name="description"  >
+
+                    <label><b>Цена</b></label>
+                    <input type="text"  placeholder="Введите цену" name="price">
+
+                    <hr>
+                    <button type="submit"  class="button">Добавить товар</button>
+                </div>
+        </form>
+
+        <form class="updateStatus" action="#" th:action="@{/menuAdm/updateAmount.html}"  method="post">
+            <label><b >Изменить количество товара</b></label>
+            <input type="text"  placeholder="Введите id продукта" name="id">
+            <input type="text"  placeholder="Введите количество" name="amount">
+            <hr>
+            <button type="submit"  class="button">Изменить</button>
+        </form>
     </div>
 </header>
 

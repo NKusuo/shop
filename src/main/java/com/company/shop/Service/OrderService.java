@@ -2,6 +2,7 @@ package com.company.shop.Service;
 
 import com.company.shop.Repository.OrdersRepository;
 import com.company.shop.domain.Orders;
+import com.company.shop.domain.Products;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,5 +40,9 @@ public class OrderService {
     @Transactional
     public void updateStatus(Integer idOrder, String status){
         ordersRepository.updateStatus(idOrder,status);
+    }
+
+    public List<Orders> allOrders() {
+        return ordersRepository.allOrders();
     }
 }

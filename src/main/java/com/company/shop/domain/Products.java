@@ -38,13 +38,14 @@ public class Products {
         this.description = description;
     }
 
+    /*
     //вывод объекта в консоль
     public String printProduct(){
         return (this.title + " "+ this.amount+" "+ this.description+" "+this.price).toString();
-    }
+    }*/
 
     public Integer getIdProduct() {
-        return idProduct;
+        return this.idProduct;
     }
 
     public String getTitle() {

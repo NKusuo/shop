@@ -6,11 +6,15 @@ import com.company.shop.Service.OrderService;
 import com.company.shop.Service.ProductsService;
 import com.company.shop.domain.Client;
 import com.company.shop.domain.Orders;
+import com.company.shop.domain.Products;
+import com.company.shop.domain.addProd;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -42,6 +46,36 @@ public class Controllers {
     }
 
     @Autowired
+    private ProductsService productsService;
+
+    @GetMapping("/menu.html")
+    public String menu(Model model) {
+        List<Products> allProducts = productsService.allProducts();
+        model.addAttribute("allProducts",allProducts);
+        return "menu.html";
+    }
+
+    @PostMapping("/menu.html")
+    public String addProducts(@ModelAttribute(value="addProd") addProd listCheck){
+        List<Integer> checkedItems = listCheck.getCheckedItems();
+        ArrayList<Products> newOrder=new ArrayList<Products>();
+        for(int i=0;i<checkedItems.size();++i){
+            Integer id = checkedItems.get(i);
+            Products p=productsService.findAllById(id);
+            newOrder.add(p);
+            productsService.updateAmount(p.getIdProduct(),p.getAmount()-1);
+        }
+        Integer price =0;
+        for(int i=0;i<checkedItems.size();++i){
+            price += newOrder.get(i).getPrice();
+        }
+
+        Orders order = new Orders(client.getIdClient(),"В обработке", new Date(), price,newOrder);
+        orderService.createOrder(order);
+        return "redirect:/menu.html";
+    }
+
+    @Autowired
     private AdminService adminService;
 
 
@@ -59,11 +93,6 @@ public class Controllers {
         return "redirect:/menuAdm.html";
     }
 
-    @GetMapping("/AcceptedOrders.html")
-    public String AcceptedOrders( ) {
-        return "AcceptedOrders.html";
-    }
-
 
     @Autowired
     private OrderService orderService;
@@ -71,25 +100,15 @@ public class Controllers {
     @GetMapping("/history.html")
     public String history(Model model) {
         List<Orders> listOrders = orderService.findAllByIdClient(client.getIdClient());
-        model.addAttribute("Orders",listOrders);
+        model.addAttribute("listOrders",listOrders);
         return "history.html";
     }
 
 
 
-    @GetMapping("/menuAdm.html")
-    public String menuAdm( ) {
-        return "menuAdm.html";
-    }
-
     @GetMapping("/statProducts.html")
     public String statProducts( ) {
         return "statProducts.html";
-    }
-
-    @GetMapping("/statProfit.html")
-    public String statProfit( ) {
-        return "statProfit.html";
     }
 
     @GetMapping("/err404.html")

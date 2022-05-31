@@ -7,14 +7,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class menuController {
+public class statProfitController {
 
     @Autowired
-    private ProductsService productsService;
+    ProductsService productsService;
 
-    @GetMapping("/menu.html")
-    public String menu(Model model) {
-        model.addAttribute("Products",productsService.allProducts());
-        return "menu.html";
+    @GetMapping("/statProfit.html")
+    public String stat( Model model) {
+        //model.addAttribute("listProducts",productsService.statProducts());
+        return "statProfit.html";
     }
+
 }
