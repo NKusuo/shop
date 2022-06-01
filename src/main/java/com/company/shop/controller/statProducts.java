@@ -1,23 +1,27 @@
 package com.company.shop.controller;
-import com.company.shop.domain.Products;
+
 import com.company.shop.Service.ProductsService;
 import com.company.shop.additions.statisticsPrice;
+import com.company.shop.domain.Products;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 @Controller
-public class statProfitController {
+public class statProducts {
 
     @Autowired
     ProductsService productsService;
 
-    @GetMapping("/statProfit.html")
+    @GetMapping("/statProducts.html")
     public String stat( Model model) {
-        List<Products>  statistics = productsService.statProducts();
+
+        List<Products> statistics = productsService.statProducts();
         int[] mass= new int[statistics.size()];
         for(int i=0;i<statistics.size();++i){
             mass[i]=statistics.get(i).getIdProduct();
@@ -45,13 +49,13 @@ public class statProfitController {
                     ++count;
                 }
             }
-            result.add(new statisticsPrice(statistics.get(i).getIdProduct(),count*statistics.get(i).getPrice()));
+            result.add(new statisticsPrice(statistics.get(i).getIdProduct(),count));
             count=0;
         }
         Collections.sort(result);
         Collections.reverse(result);
         model.addAttribute("statistics",result);
-        return "statProfit.html";
+        return "statProducts.html";
     }
 
 }

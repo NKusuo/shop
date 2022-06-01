@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org"
-      xmlns:sec="https://thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns:th="http://thymeleaf.org">
 
 <head>
     <meta charset="UTF-8" />
@@ -19,17 +18,15 @@
 
             <h1>Вход</h1>
             <p>Пожалуйста заполните эту форму, чтобы войти.</p>
+            <th><p th:text="${errorData}"/></th>
             <hr>
-
             <label><b>Логин</b></label>
             <input type="text"  placeholder="Введите логин" name="log" required>
 
             <label><b>Пароль</b></label>
             <input type="password"  placeholder="Введите пароль" name="psw" required>
-
             <hr>
             <button type="submit" class="button">Войти</button>
-            <th><p th:text="${errorData}"/></th>
         </div>
     </div>
 </form>

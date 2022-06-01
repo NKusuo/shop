@@ -1,4 +1,4 @@
-package com.company.shop.domain;
+package com.company.shop.additions;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;

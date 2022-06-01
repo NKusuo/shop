@@ -1,9 +1,7 @@
 package com.company.shop.Service;
 
 import com.company.shop.Repository.ProductsRepository;
-import com.company.shop.domain.Client;
 import com.company.shop.domain.Products;
-import com.company.shop.statisticsPrice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -58,7 +56,7 @@ public class ProductsService {
         productsRepository.updateAmount(idProduct,newAmount);
     }
 
-    public List<statisticsPrice> statProducts(){
+    public List<Products> statProducts(){
         return productsRepository.statProducts();
     }
 }

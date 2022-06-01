@@ -1,7 +1,6 @@
 package com.company.shop.Repository;
 
 import com.company.shop.domain.Products;
-import com.company.shop.statisticsPrice;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -30,8 +29,8 @@ public interface ProductsRepository extends JpaRepository<Products,Long> {
     @Query("UPDATE Products SET amount =:newAmount WHERE idProduct=(:idProduct)")
     Integer updateAmount(Integer idProduct, Integer newAmount);
 
-   /* //статистика
-    @Query(value = "select o.idproduct,  amount(o.idproduct) profit from orderand_product o order by profit desc ",
+   //статистика
+    @Query(value = "select * from products inner join orderand_product on products.idProduct=orderand_product.idProduct ",
             nativeQuery = true )
-    List<statisticsPrice> statProducts();*/
+    public List<Products> statProducts();
 }

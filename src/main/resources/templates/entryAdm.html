@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <title>вход(администратор)</title>
@@ -15,15 +15,16 @@
         </nav>
         <h1>Вход</h1>
         <p>Пожалуйста заполните эту форму, чтобы войти.</p>
-        <hr>
+            <th><p th:text="${errorData}"/></th>
 
+        <hr>
         <label><b>Логин</b></label>
         <input type="text" placeholder="Введите логин" name="log" required>
 
         <label><b>Пароль</b></label>
         <input type="password" placeholder="Введите пароль" name="psw" required>
-
         <hr>
+
         <button type="submit" class="button">Войти</button>
         </div>
     </div>

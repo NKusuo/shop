@@ -19,27 +19,29 @@
                 <a class="nav_link" href="entry.html">Выйти</a>
             </nav>
         </div>
+
         <form action="#" th:action="@{/menu.html}" object="${addProd}" method="post">
-        <div class="list_product">
+            <!--<th><p text="${errorData}"/></th>-->
+            <div class="list_product">
 
-                <table >
-                        <tr th:each="products: ${allProducts}">
-                           <!-- <td><p th:text="'id '+${products.idProduct}"/></td>-->
-                            <td><p th:text="${products.title}"/></td>
-                            <td><p th:text="'Описание: '+${products.description}"/></td>
-                            <td><p th:text="'В наличии: '+${products.amount}"/></td>
-                            <td><p th:text="'Цена: '+${products.price}"/></td>
-                            <td><label class="check">
-                                    <input type="checkbox" field="*{checkedItems}" name="checkedItems" th:value="${products.idProduct}"> <span>Добавить </span>
-                           </label> </td>
-                        </tr>
-                </table>
+                    <table >
+                            <tr th:each="products: ${allProducts}">
+                                <td><p th:text="${products.title}"/></td>
+                                <td><p th:text="'Описание: '+${products.description}"/></td>
+                                <td><p th:text="'В наличии: '+${products.amount}"/></td>
+                                <td><p th:text="'Цена: '+${products.price}"/></td>
+                                <td><label class="check">
+                                        <input type="checkbox" field="*{checkedItems}" name="checkedItems" th:value="${products.idProduct}"> <span>Добавить </span>
+                               </label> </td>
+                            </tr>
+                    </table>
 
-        </div>
-        <div class="add_order">
-            <button type="submit" class="button">Создать заказ</button>
-        </div>
-    </form>
+            </div>
+            <div class="add_order">
+                <button type="submit" class="button">Создать заказ</button>
+            </div>
+
+        </form>
     </div>
 </header>
 

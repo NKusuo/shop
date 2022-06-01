@@ -27,8 +27,8 @@ public class RegistrationController {
     public String addClient(@ModelAttribute("clientForm") Client clientForm, Model model) {
 
         if (!clientService.createClient(clientForm)){
-            model.addAttribute("usernameError", "Пользователь с таким именем уже существует");
-            return "usernameError.html";
+            model.addAttribute("errorData", "ПОЛЬЗОВАТЕЛЬ С ТАКИМ ЛОГИНОМ УЖЕ СУЩЕСТВУЕТ!");
+            return "registration.html";
         }
 
         return "redirect:/entry.html";

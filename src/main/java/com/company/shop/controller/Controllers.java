@@ -7,7 +7,7 @@ import com.company.shop.Service.ProductsService;
 import com.company.shop.domain.Client;
 import com.company.shop.domain.Orders;
 import com.company.shop.domain.Products;
-import com.company.shop.domain.addProd;
+import com.company.shop.additions.addProd;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,11 +34,12 @@ public class Controllers {
         return "entry.html";
     }
 
+
     @PostMapping("/entry.html")
     public String entryPost(@RequestParam String log,@RequestParam  String psw,  Model model) {
 
         if(!clientService.findByPassAndLogin(log, psw)){
-            /* model.addAttribute("errorData","Неверные данные!");*/
+             model.addAttribute("errorData","НЕВЕРНЫЕ ДАННЫЕ!");
             return "entry.html";
         }
         client = clientService.findByLogin(log);
@@ -56,9 +57,17 @@ public class Controllers {
     }
 
     @PostMapping("/menu.html")
-    public String addProducts(@ModelAttribute(value="addProd") addProd listCheck){
+    public String addProducts(@ModelAttribute(value="addProd") addProd listCheck, Model model){
+
+
         List<Integer> checkedItems = listCheck.getCheckedItems();
         ArrayList<Products> newOrder=new ArrayList<Products>();
+
+        if(checkedItems==null){
+            model.addAttribute("errorData","Выберете товары!");
+            return "redirect:/menu.html";
+        }
+
         for(int i=0;i<checkedItems.size();++i){
             Integer id = checkedItems.get(i);
             Products p=productsService.findAllById(id);
@@ -87,7 +96,7 @@ public class Controllers {
     @PostMapping("/entryAdm.html")
     public String entryPostAdm(@RequestParam String log, @RequestParam  String psw, Model model) {
         if(!adminService.findByPassAndLogin(log, psw)){
-            /* model.addAttribute("errorData","Неверные данные!");*/
+            model.addAttribute("errorData","НЕВЕРНЫЕ ДАННЫЕ!");
             return "entryAdm.html";
         }
         return "redirect:/menuAdm.html";
@@ -102,13 +111,6 @@ public class Controllers {
         List<Orders> listOrders = orderService.findAllByIdClient(client.getIdClient());
         model.addAttribute("listOrders",listOrders);
         return "history.html";
-    }
-
-
-
-    @GetMapping("/statProducts.html")
-    public String statProducts( ) {
-        return "statProducts.html";
     }
 
     @GetMapping("/err404.html")

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <title>Статистика (по товарам)</title>
@@ -16,6 +16,14 @@
                 <a class="nav_link" href="menuAdm.html">Назад</a>
                 <a class="nav_link" href="entryAdm.html">Выйти</a>
             </nav>
+        </div>
+        <div class="list_product">
+            <table >
+                <tr th:each="products: ${statistics}">
+                    <td><p th:text="'Id продукта: '+${products.id}"/></td>
+                    <td><p th:text="'Количество заказов : '+${products.profit}"/></td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>
