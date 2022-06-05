@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Controller
-public class statProducts {
+public class StatProductsController {
 
     @Autowired
     ProductsService productsService;

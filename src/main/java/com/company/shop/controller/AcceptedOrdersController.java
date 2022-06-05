@@ -31,6 +31,10 @@ public class AcceptedOrdersController {
 
     @PostMapping("/AcceptedOrders.html")
     public String statusOrder(@RequestParam String status,@RequestParam Integer id, Model model) {
+        if(!status.equals("В обработке") && !status.equals("Завершен")){
+            model.addAttribute("errorStatus","Введите \"В обработке\" или \"Завершен\"!");
+            return "AcceptedOrders.html";
+        }
         orderService.updateStatus(id,status);
         return "redirect:/AcceptedOrders.html";
     }

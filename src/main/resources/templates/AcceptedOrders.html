@@ -2,7 +2,7 @@
 <html lang="en"  xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
-    <title>Принятые заказы</title>
+    <title>Заказы</title>
     <link rel="stylesheet"  href="../../../../1.css">
 </head>
 <body>
@@ -29,8 +29,9 @@
         </div>
             <form class="updateStatus" action="#" th:action="@{/AcceptedOrders.html}"  method="post">
                 <label><b >Изменить статус заказа</b></label>
+                <th><p th:text="${errorStatus}"/></th>
                 <input type="text"  placeholder="Введите номер заказа" name="id">
-                <input type="text"  placeholder="Введите статус" name="status">
+                <input type="text"  placeholder="Введите статус 'В обработке' или 'Завершен'" name="status">
                 <hr>
                 <button type="submit"  class="button">Изменить</button>
             </form>
